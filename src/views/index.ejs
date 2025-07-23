@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <nav>
+        <a href="/products">Add New Product</a>
+    </nav>
+
+    <div class="container">
+       
+
+    <% products.forEach(elem => { %>
+         <div class="card">
+            <div class="top">
+                <img src="<%= elem.image %>" alt="imge">
+            </div>
+            <div class="bottom">
+                <a href="/products/<%= elem.id %>"><h3><%= elem.title%></h3></a>
+                <p><%= elem.description %></p>
+                <p><%= elem.price %></p>
+            </div>
+        </div>
+    <% }); %>
+    
+
+    </div>
+
+
+   
+</body>
+</html>
+
+  
