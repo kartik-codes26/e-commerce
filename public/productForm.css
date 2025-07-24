@@ -1,22 +1,32 @@
-body,html{
-    margin : 0;
-    padding: 0;
+body , html {
+    margin: 0%;
+    padding: 0%;
     box-sizing: border-box;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     width: 100%;
 
+    flex-direction: column;
 }
 
+
+
 form{
-    border : 1px solid rgb(0, 0, 0);
-    padding : 10px;
-    width: 500px;
-    margin: auto;
-    margin-top: 50px;
+    border: 1px solid black;
+    padding: 15px;
 }
-form>label{
+
+
+form>label {
     display: block;
-    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+form > input{
+    padding: 5px 10px;
+} 
+form > button {
+    margin-top: 10px;
 }

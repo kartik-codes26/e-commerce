@@ -7,18 +7,50 @@ body , html {
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
-.card{
-    height: 50%;
+.card {
+    height: 80%;
+    width: 80%;
+    background-color: rgb(235, 216, 192);
+    display: flex;
+    gap: 1px;
+    justify-content: left;
+
+}
+
+.right {
+    background-color: rgb(106, 60, 60);
+   
+    margin: 80px;
+    align-items: auto;
+}
+.card .left {
+    height: 100%;
+}
+
+.card .left img {
     width: 50%;
-    background-color: rgb(81, 46, 46);
     display: flex;
 }
 
-.card .left{
-    height: 100%;
+.buttons {
+    display: flex;
+    justify-content: space-around;
 }
-.card .left img{
-    width: 60%;
+
+
+button {
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+
+
+}
+
+button a {
+    text-decoration: none;
+
+    font-size: 2em;
 }
