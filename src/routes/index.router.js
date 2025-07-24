@@ -1,15 +1,20 @@
-const express = require("express")
-const productModel = require("../models/product.model")
+// index.router.js
+const express = require("express");
+const productModel = require("../models/product.model");
 
-const router = express.Router()
+const router = express.Router();
 
-router.get("/", async(req, res)=>{
-   const products = await productModel.find()
-//    console.log("products :" , products);
-   
-    res.render("index.ejs",{products : products, title : "home page"})
-})
+router.get("/", async (req, res) => {
+    const products = await productModel.find();
+    res.render("index", { products, title: "Home Page" });
+});
 
+router.get("/login", (req, res) => {
+    res.render("login", { title: "Login" });
+});
 
+router.get("/register", (req, res) => {
+    res.render("register", { title: "Register" });
+});
 
-module.exports = router
+module.exports = router;

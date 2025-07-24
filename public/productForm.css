@@ -1,32 +1,62 @@
-body , html {
-    margin: 0%;
-    padding: 0%;
+* {
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    background-color: #eaf0f6;
+}
+
+form {
+    background-color: #e3c5c5;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     width: 100%;
-
-    flex-direction: column;
+    max-width: 400px;
 }
 
-
-
-form{
-    border: 1px solid black;
-    padding: 15px;
-}
-
-
-form>label {
+form > label {
     display: block;
-    margin-top: 10px;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #333;
 }
 
-form > input{
-    padding: 5px 10px;
-} 
+form > input {
+    padding: 10px;
+    margin-top: 8px;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+}
+
+form > input:focus {
+    border-color: #4caf50;
+    outline: none;
+}
+
 form > button {
-    margin-top: 10px;
+    margin-top: 20px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form > button:hover {
+    background-color: #43a047;
 }

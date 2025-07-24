@@ -21,4 +21,18 @@ app.use("/",indexRouter)
 
 
 
+
+const userRouter = require("./routes/user.router.js");
+app.use("/", userRouter);  // 
+
+
+const session = require("express-session");
+
+app.use(session({
+  secret: "secret-key", // use env var in production
+  resave: false,
+  saveUninitialized: false
+}));
+
+
 module.exports=app

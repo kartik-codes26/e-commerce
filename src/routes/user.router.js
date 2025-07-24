@@ -1,81 +1,34 @@
-const express = require("express")
-const bcrypt = require("bcrypt")
-const userModel = require("../models/user.model")
+const express = require("express");
+const router = express.Router();
 
-const router = express.Router()
+// Show login page
+router.get("/login", (req, res) => {
+  res.render("login");
+});
 
-router.post("/register",async (req, res)=>{
+// Handle login form POST
+router.post("/login", (req, res) => {
+  const { email, password } = req.body;
 
-    const {username , email , password} = req.body
+  // Replace this logic with your own authentication
+  if (email === "admin@example.com" && password === "1234") {
+    req.session.user = email;
+    res.redirect("/");  // redirect to home page
+  } else {
+    res.send("Invalid credentials");
+  }
+});
 
-    try {
-      
-        if(!username){
-            return res.status(400).json({message : "username is required"})
-        }
-        if(!email){
-            return res.status(400).json({message : "email is required"})
-        }
-        if(!password){
-            return res.status(400).json({message : "password is required"})
-        }
-       
+// Show register page
+router.get("/register", (req, res) => {
+  res.render("register");
+});
 
-        const hashedPass = await bcrypt.hash(password ,10)
+// Handle register POST
+router.post("/register", (req, res) => {
+  const { name, email, password } = req.body;
+  // Save logic here
+  res.redirect("/login");
+});
 
-        const user = new userModel({
-            username : username,
-            email : email ,
-            password : hashedPass
-        })
-
-
-        await user.save()
-        
-        res.send("register successfully....")
-
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({message : "internal server error", error : error.message})
-    }
-
-})
-
-
-router.post("/login", async (req, res)=>{
-    const {email , password} = req.body
-
-    try {
-
-
-        if(!email){
-            return res.status(400).json({message : "email is required"})
-        }
-        if(!password){
-            return res.status(400).json({message : "password is required"})
-        }
-
-        const user = await userModel.findOne({email : email})
-
-        if(!user){
-            return res.status(400).json({message : "user not exists"})
-        }
-
-        const isTrue = await bcrypt.compare(password ,user.password )
-
-
-        if(!isTrue){
-            return res.status(400).json({message : "email or password desnot match"})
-        }
-
-        res.status(200).json({message : "login successfully..."})
-
-    } catch (error) {
-        console.log(error); 
-        res.status(500).json({message : "internal server error", error : error.message})
-    
-    }
-})
-
-
-module.exports = router
+module.exports = router;
